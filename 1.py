@@ -16,17 +16,18 @@ def image_callback(data):
     imgHSV = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     threshold = cv2.inRange(imgHSV, fireRange[0], fireRange[1])
     fireContours, _ = cv2.findContours(threshold, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    fireContours = list(filter(lambda x: cv2.contourArea(x) > 400, fireContours))
-    
+    fireContours = list(filter(lambda x: cv2.contourArea(x) > 600, fireContours))
+
     i = 0
     for contour in fireContours:
         i += 1
         M = cv2.moments(contour)
         cx = int(M["m10"] / M["m00"])
         cy = int(M["m00"] / M["m00"])
+        cv2.drawContours(img, [contour], -1, (255, 0, 0), 5)
         print(str(i + 1) + ".", cx, cy)
 
-    test_public.publish(bridge.cv2_to_imgmsg(threshold, 'mono8'))
+    test_public.publish(bridge.cv2_to_imgmsg(img, 'bgr8'))
 
 
 image_sub = rospy.Subscriber('main_camera/image_raw_throttled', Image, image_callback)
