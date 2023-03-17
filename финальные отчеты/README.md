@@ -1,5 +1,6 @@
 # Финальный отчёт команды "Rакета67"
-'''# Импортирование библиотек
+'''
+    # Импортирование библиотек
     import rospy
     import math
     import cv2
@@ -12,9 +13,7 @@
     from visualization_msgs.msg import MarkerArray
     from sensor_msgs.msg import Range
     import requests
-
     rospy.init_node("prog")
-
     bridge = CvBridge()
 
     # Создание топиков
