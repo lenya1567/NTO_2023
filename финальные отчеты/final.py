@@ -1,4 +1,3 @@
-'''python3
 # Импортирование библиотек
 import rospy
 import math
@@ -234,4 +233,3 @@ for i in range(1, len(data)):
 
     c += 1
     print("Wall", str(c) + ":", abs(last[0] - dista))
-'''
