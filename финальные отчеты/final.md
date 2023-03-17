@@ -1,4 +1,4 @@
-'''python3
+
 # Импортирование библиотек
 import rospy
 import math
@@ -204,33 +204,8 @@ navigate_wait(x=0, y=4 * 1.005, z=1, frame_id="aruco_map", yaw=math.pi)
 rospy.sleep(5)
 wallStart = True
 navigate_wait(x=7 * 1.005, y=4 * 1.005, z=1, yaw=math.pi, speed=0.2, frame_id="aruco_map")
-'''
-navigate_wait(x=4 * 1.005, y=1 * 1.005, z=1, frame_id="aruco_map")
-navigate_wait(x=4 * 1.005, y=4 * 1.005, z=1, frame_id="aruco_map")
-navigate_wait(x=7 * 1.005, y=4 * 1.005, z=1, frame_id="aruco_map")
-navigate_wait(x=7 * 1.005, y=0, z=1, frame_id="aruco_map")
-navigate_wait(x=x0, y=0, z=1, frame_id="aruco_map")
-navigate_wait(x=x0, y=y0, z=1, frame_id="aruco_map")
-'''
+
 land()
-
-#rospy.sleep(10)
-'''
-was = []
-
-findFires = []
-
-for e in fires:
-    notNeed = False
-    for fr in was:
-        if get_distance(e[0], e[1], 0, fr[0], fr[1], 0) < 0.5:
-            notNeed = True
-            break
-    if not notNeed:
-        findFires += [(e[0], e[1])]
-        was += [(e[0], e[1])]
-'''
-
 
 # Вывод автоматического отчёта
 print("Auto report:")
@@ -259,5 +234,3 @@ for i in range(1, len(data)):
 
     c += 1
     print("Wall", str(c) + ":", abs(last[0] - dista))
-
-'''
